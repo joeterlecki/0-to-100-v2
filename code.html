@@ -85,11 +85,40 @@
         <div class="col-lg-5">
           <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">0-TO-100</span></h3>
           <h3>The Code</h3>
-          <p>Get your speed up and go full throttle. A javascript program that displays a list of numbers from 0 to 100.
-            All Even Numbers will be displayed in <span class="text-gradient text-primary">BOLD</span></p>
-          <h4>Instructions</h4>
-          <p>Enter a starting value and a ending value. Press the button and the values with appear with EVEN numbers in
-            <span class="text-gradient text-primary">BOLD</span></p>
+          <p>The Javascript Starts with the function <span class="text-primary text-gradient">getNumbers</span> which
+            retrieves the values from the web form using <span
+              class="text-primary text-gradient">documnet.getElementById</span></p>
+          <p>To ensure and validate the values are integers, the inputs are parsed with <span
+              class="text-primary text-gradient">parseInt</span> and following with a conditional to check value type
+            using <span class="text-primary text-gradient">Number.isInteger</span></p>
+          <p>If the input returns TRUE the numbers are generated and then displayed using the functions <span
+              class="text-primary text-gradient"> generateNumbers</span> and <span
+              class="text-primary text-gradient">displayNumbers</span> respectively otherwise an alert is returned</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p>The <span class="text-primary text-gradient">generateNumbers</span> functions takes in both values and
+            generates values for an empty list. The numbers are iterated over and pushed to the empty list which is then
+            returned</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p>To display the numbers to our app with <span class="text-primary text-gradient">displayNumbers</span> the
+            function takes the numbers array returned from the previous funtion. These numbers are then put through
+            another loop that creates a template literal for generating the table rows.</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p>After each iteration, the method
+            <span class="text-primary text-gradient">document.getElementById("results").innerHTML </span> and assigning
+            the values for each literal</p>
         </div>
         <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
           <div class="card d-flex justify-content-center p-4 shadow-lg">

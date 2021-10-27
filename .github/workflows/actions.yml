@@ -4,10 +4,9 @@ on:
     branches:
       - 'master'
 
-
 env:
-  BUCKET_NAME: <BUCKET_NAME>
-  CF_DISTRO_ID: <DISTRO ID>
+  BUCKET_NAME: 0-to-100.joeterlecki.io
+  CF_DISTRO_ID: E3DBA7RZ97IVGU
 
 
 jobs:
@@ -17,7 +16,6 @@ jobs:
       - name: Checkout ${{ github.repository }}
         uses: actions/checkout@v2
       - name: Configure AWS Credentials
-        if: github.ref != 'refs/heads/master'
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

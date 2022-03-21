@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
   <title>0-TO-100: Full Throttle</title>
 
@@ -12,117 +12,118 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/42d5adcbca.js"></script>
 
   <!-- Soft UI Design System -->
-  <link type="text/css" href="./assets/css/soft-design-system-pro.min.css" rel="stylesheet">
+  <link href="./assets/css/soft-design-system-pro.min.css" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./css/prism.css">
+  <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/prism.css" rel="stylesheet">
 
 </head>
 
 <body>
-  <!-- Navbar Light -->
+<!-- Navbar Light -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
-    <div class="container">
-      <a class="navbar-brand" href="./index.html" rel="tooltip" title="Place Holder" data-placement="bottom"
-        target="_blank">
-        <span class="brand-font">0-TO-100: Full Throttle</span>
-      </a>
-      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+  <div class="container">
+    <a class="navbar-brand" data-placement="bottom" href="./index.html" rel="tooltip" target="_blank"
+       title="Place Holder">
+      <span class="brand-font">0-TO-100: Full Throttle</span>
+    </a>
+    <button aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler shadow-none ms-2" data-bs-target="#navigation" data-bs-toggle="collapse"
+            type="button">
         <span class="navbar-toggler-icon mt-2">
           <span class="navbar-toggler-bar bar1"></span>
           <span class="navbar-toggler-bar bar2"></span>
           <span class="navbar-toggler-bar bar3"></span>
         </span>
-      </button>
-      <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
-        <ul class="navbar-nav navbar-nav-hover mx-auto">
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-              href="./index.html">
-              Home
-            </a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="./app.html">
-              The App
-            </a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-              href="./code.html">
-              The Code
-            </a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-              href="https://github.com/joeterlecki/0-to-100-v2" target="_blank">
-              Git Repo
-            </a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-              href="https://joeterlecki.io" target="_blank">
-              About
-            </a>
-          </li>
-        </ul>
-      </div>
+    </button>
+    <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+             href="./index.html">
+            Home
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="./app.html">
+            The App
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+             href="./code.html">
+            The Code
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+             href="https://github.com/joeterlecki/0-to-100-v2" target="_blank">
+            Git Repo
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+             href="https://joeterlecki.io" target="_blank">
+            About
+          </a>
+        </li>
+      </ul>
     </div>
-  </nav>
-  <section class="py-9">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5">
-          <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">0-TO-100</span></h3>
-          <h3>The Code</h3>
-          <p>The Javascript Starts with the function <span class="text-primary text-gradient">getNumbers</span> which
-            retrieves the values from the web form using <span
-              class="text-primary text-gradient">documnet.getElementById</span></p>
-          <p>To ensure and validate the values are integers, the inputs are parsed with <span
-              class="text-primary text-gradient">parseInt</span> and following with a conditional to check value type
-            using <span class="text-primary text-gradient">Number.isInteger</span></p>
-          <p>If the input returns TRUE the numbers are generated and then displayed using the functions <span
-              class="text-primary text-gradient"> generateNumbers</span> and <span
-              class="text-primary text-gradient">displayNumbers</span> respectively otherwise an alert is returned</p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <p>The <span class="text-primary text-gradient">generateNumbers</span> functions takes in both values and
-            generates values for an empty list. The numbers are iterated over and pushed to the empty list which is then
-            returned</p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <p>To display the numbers to our app with <span class="text-primary text-gradient">displayNumbers</span> the
-            function takes the numbers array returned from the previous funtion. These numbers are then put through
-            another loop that creates a template literal for generating the table rows.</p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <p>After each iteration, the method
-            <span class="text-primary text-gradient">document.getElementById("results").innerHTML </span> and assigning
-            the values for each literal</p>
-        </div>
-        <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
-          <div class="card d-flex justify-content-center p-4 shadow-lg">
+  </div>
+</nav>
+<section class="py-9">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">0-TO-100</span></h3>
+        <h3>The Code</h3>
+        <p>The Javascript Starts with the function <span class="text-primary text-gradient">getNumbers</span> which
+          retrieves the values from the web form using <span
+              class="text-primary text-gradient">document.getElementById</span></p>
+        <p>To ensure and validate the values are integers, the inputs are parsed with <span
+            class="text-primary text-gradient">parseInt</span> and following with a conditional to check value type
+          using <span class="text-primary text-gradient">Number.isInteger</span></p>
+        <p>If the input returns TRUE the numbers are generated and then displayed using the functions <span
+            class="text-primary text-gradient"> generateNumbers</span> and <span
+            class="text-primary text-gradient">displayNumbers</span> respectively otherwise an alert is returned</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>The <span class="text-primary text-gradient">generateNumbers</span> functions takes in both values and
+          generates values for an empty list. The numbers are iterated over and pushed to the empty list which is then
+          returned</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>To display the numbers to our app with <span class="text-primary text-gradient">displayNumbers</span> the
+          function takes the numbers array returned from the previous function. These numbers are then put through
+          another loop that creates a template literal for generating the table rows.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>After each iteration, the method
+          <span class="text-primary text-gradient">document.getElementById("results").innerHTML </span> and assigning
+          the values for each literal</p>
+      </div>
+      <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        <div class="card d-flex justify-content-center p-4 shadow-lg">
             <pre class="line-numbers"><code class="language-javascript">
               function getNumbers() {
                 let startNumber = document.getElementById("startNumber").value;
@@ -157,7 +158,8 @@
                   let displayNumber = numbers[number];
               
                   if (displayNumber % 2 === 0) {
-                    templateRows += `<tr><td class="align-middle text-center"><span class="text-primary text-gradient text-xs font-weight-bold">${displayNumber}</span></td></tr>`;
+                    templateRows += `<tr><td class="align-middle text-center"><span
+                class="text-primary text-gradient text-xs font-weight-bold">${displayNumber}</span></td></tr>`;
                   } else {
                     templateRows += `<tr><td class="align-middle text-center"><span class="text-secondary text-xs">${displayNumber}</span></td></tr>`;
                   }
@@ -168,89 +170,76 @@
               
               }
             </code></pre>
-          </div>
         </div>
       </div>
     </div>
-    </div>
-  </section>
-  <footer class="footer py-10">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mb-4 mx-auto text-center">
-          <a href="https://joeterlecki.io#about-me" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-            About Me
-          </a>
-          <a href="https://joeterlecki.io#about-me#skills" target="_blank"
-            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-            Skills
-          </a>
-          <a href="https://joeterlecki.io#about-me#projects" target="_blank"
-            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-            Projects
-          </a>
-          <a href="https://joeterlecki.io#about-me#coding-challanges" target="_blank"
-            class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-            Coding Challenges
-          </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
-            Blog
-          </a>
-        </div>
-        <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
-          <a href="https://www.youtube.com/c/JoeTerlecki" target="_blank" class="text-secondary me-xl-4 me-4">
-            <span class="text-lg fab fa-youtube"></span>
-          </a>
-          <a href="https://www.linkedin.com/in/joseph-terlecki/" target="_blank" class="text-secondary me-xl-4 me-4">
-            <span class="text-lg fab fa-linkedin"></span>
-          </a>
-          <a href="https://github.com/joeterlecki" target="_blank" class="text-secondary me-xl-4 me-4">
-            <span class="text-lg fab fa-github"></span>
-          </a>
-          <a href="https://twitter.com/cloud_custodian" target="_blank" class="text-secondary me-xl-4 me-4">
-            <span class="text-lg fab fa-twitter"></span>
-          </a>
-        </div>
+  </div>
+</section>
+<footer class="footer py-10">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mb-4 mx-auto text-center">
+        <a class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2" href="https://joeterlecki.io#about-me" target="_blank">
+          About Me
+        </a>
+        <a class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2" href="https://joeterlecki.io#about-me#skills"
+           target="_blank">
+          Skills
+        </a>
+        <a class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2" href="https://joeterlecki.io#about-me#projects"
+           target="_blank">
+          Projects
+        </a>
+        <a class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2" href="https://joeterlecki.io#about-me#coding-challanges"
+           target="_blank">
+          Coding Challenges
+        </a>
+        <a class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2" href="javascript:" target="_blank">
+          Blog
+        </a>
       </div>
-      <div class="row">
-        <div class="col-8 mx-auto text-center mt-1">
-          <p class="mb-0 text-secondary">
-            Copyright © <script>
+      <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+        <a class="text-secondary me-xl-4 me-4" href="https://www.youtube.com/c/JoeTerlecki" target="_blank">
+          <span class="text-lg fab fa-youtube"></span>
+        </a>
+        <a class="text-secondary me-xl-4 me-4" href="https://www.linkedin.com/in/joseph-terlecki/" target="_blank">
+          <span class="text-lg fab fa-linkedin"></span>
+        </a>
+        <a class="text-secondary me-xl-4 me-4" href="https://github.com/joeterlecki" target="_blank">
+          <span class="text-lg fab fa-github"></span>
+        </a>
+        <a class="text-secondary me-xl-4 me-4" href="https://twitter.com/cloud_custodian" target="_blank">
+          <span class="text-lg fab fa-twitter"></span>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 mx-auto text-center mt-1">
+        <p class="mb-0 text-secondary">
+          Copyright ©
+          <script>
               document.write(new Date().getFullYear())
-            </script> Joe Terlecki.
-          </p>
-        </div>
+          </script>
+          Joe Terlecki.
+        </p>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!--   Core JS Files   -->
-  <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-  <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-  <script src="" ./assets/js/plugins/perfect-scrollbar.min.js"" type="text/javascript"></script>
-  <script src="./assets/js/plugins/moment.min.js"></script>
-
-
-  <!-- Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="./assets/js/plugins/nouislider.min.js"></script>
-
-  <!--  Plugin for the Carousel, full documentation here: http://jedrzejchalubek.com/  -->
-  <script src="./assets/js/plugins/glidejs.min.js"></script>
-
-  <!--	Plugin for Select, full documentation here: https://joshuajohnson.co.uk/Choices/ -->
-  <script src="./assets/js/plugins/choices.min.js" type="text/javascript"></script>
-
-  <!-- Control Center for Soft UI Design System: parallax effects, scripts for the example pages etc -->
-  <script src="./assets/js/soft-design-system-pro.min.js" type="text/javascript"></script>
-  <script src="./assets/js/prism.js"></script>
-  <script>
+<!--   Core JS Files   -->
+<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<script src="./assets/js/plugins/moment.min.js"></script>
+<script src="./assets/js/prism.js"></script>
+<script>
     Prism.plugins.NormalizeWhitespace.setDefaults({
-      'remove-trailing': true,
-      'remove-indent': true,
-      'left-trim': true,
-      'right-trim': true
+        'remove-trailing': true,
+        'remove-indent': true,
+        'left-trim': true,
+        'right-trim': true
     })
-  </script>
+</script>
 </body>
 
 </html>

@@ -4,14 +4,14 @@ on:
     branches:
       - 'master'
     paths:
-      - 'frontend/**'
+      - 'lambda_package/**'
 
 env:
   BUCKET_NAME: 0-to-100.joeterlecki.io
   CF_DISTRO_ID: E3DBA7RZ97IVGU
 
 jobs:
-  deploy_frontend:
+  deploy_lambda:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout ${{ github.repository }}

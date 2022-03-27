@@ -8,7 +8,7 @@
   <title>0-TO-100: Full Throttle</title>
 
   <!-- Favicon -->
-  <link href="/frontend/assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -83,10 +83,48 @@
 </nav>
 <section class="py-9">
   <div class="container">
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-lg-5">
         <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">0-TO-100</span></h3>
-        <h3>The Code</h3>
+        <h3>The Python Code</h3>
+        <p>The Javascript Starts with the function <span class="text-primary text-gradient">getNumbers</span> which
+          retrieves the values from the web form using <span
+              class="text-primary text-gradient">document.getElementById</span></p>
+      </div>
+      <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        <div class="card d-flex justify-content-center p-4 shadow-lg">
+            <pre class="line-numbers"><code class="language-python">
+              import json
+
+
+              def generate_number_list(start_number, end_number):
+                  number_list = []
+                  for number in range(start_number, end_number):
+                      number_list.append(number)
+
+                  return number_list
+
+
+              def lambda_handler(event, context):
+                  start_number = int(event['queryStringParameters']['start_number'])
+                  end_number = int(event['queryStringParameters']['end_number'])
+
+                  number_list = generate_number_list(start_number, end_number + 1)
+
+                  numbers_response = {'number_list': number_list}
+
+                  request_response = dict(statusCode=200, headers={})
+                  request_response['headers']['Content-Type'] = 'application/json'
+                  request_response['body'] = json.dumps(numbers_response)
+
+                  return request_response
+            </code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5">
+        <h3>The Javascript Code</h3>
         <p>The Javascript Starts with the function <span class="text-primary text-gradient">getNumbers</span> which
           retrieves the values from the web form using <span
               class="text-primary text-gradient">document.getElementById</span></p>
@@ -126,48 +164,39 @@
         <div class="card d-flex justify-content-center p-4 shadow-lg">
             <pre class="line-numbers"><code class="language-javascript">
               function getNumbers() {
-                let startNumber = document.getElementById("startNumber").value;
-                let endNumber = document.getElementById("endNumber").value;
-              
-                startNumber = parseInt(startNumber);
-                endNumber = parseInt(endNumber);
-              
-                if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {
-                  let numbers = generateNumbers(startNumber, endNumber);
-              
-                  displayNumbers(numbers);
-              
-                } else {
-                  alert("You Must Enter A Valid Integer");
-                }
-              }
-              
-              function generateNumbers(startNumber, endNumber) {
-                let numbers = [];
-              
-                for (let number = startNumber; number <= endNumber; number++) {
-                  numbers.push(number);
-                }
-              
-                return numbers;
-              }
-              
-              function displayNumbers(numbers) {
-                let templateRows = "";
-                for (let number = 0; number < numbers.length; number++) {
-                  let displayNumber = numbers[number];
-              
-                  if (displayNumber % 2 === 0) {
-                    templateRows += `<tr><td class="align-middle text-center"><span
-                class="text-primary text-gradient text-xs font-weight-bold">${displayNumber}</span></td></tr>`;
+                  let startNumber = document.getElementById("startNumber").value;
+                  let endNumber = document.getElementById("endNumber").value;
+
+                  startNumber = parseInt(startNumber);
+                  endNumber = parseInt(endNumber);
+
+                  if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {
+                      generateNumberArray(startNumber, endNumber);
+
                   } else {
-                    templateRows += `<tr><td class="align-middle text-center"><span class="text-secondary text-xs">${displayNumber}</span></td></tr>`;
+                      alert("You Must Enter A Valid Integer");
                   }
-              
-                }
-              
-                document.getElementById("results").innerHTML = templateRows;
-              
+              }
+
+              function generateNumberArray(startNumber, endNumber) {
+                  const url = `https://api.joeterlecki.io/0-to-100?start_number=${startNumber}&end_number=${endNumber}`
+                  fetch(url)
+                      .then((response) => {
+                          return response.json();
+                      })
+                      .then((data) => {
+                          let numbers = data["number_list"];
+                          let templateRows = "";
+                          for (let number = 0; number < numbers.length; number++) {
+                              let displayNumber = numbers[number];
+                              if (displayNumber % 2 === 0) {
+                                  templateRows += `<tr><td class="align-middle text-center"><span class="text-primary text-gradient text-xs font-weight-bold">${displayNumber}</span></td></tr>`;
+                              } else {
+                                  templateRows += `<tr><td class="align-middle text-center"><span class="text-secondary text-xs">${displayNumber}</span></td></tr>`;
+                              }
+                          }
+                          document.getElementById("results").innerHTML = templateRows;
+                      })
               }
             </code></pre>
         </div>

@@ -2,20 +2,20 @@
   font-family: 'Graduate', cursive;
 }
 
+.py-icon {
+  color: #4B8BBE;
+}
+
 .js-icon {
   color: #f0db4f;
 }
 
-.html-icon {
-  color: #e34f26;
+.aws-icon {
+  color: #FF9900;
 }
 
 .bs-icon {
   color: #583E80;
-}
-
-.css-icon {
-  color: #2760E5;
 }
 
 code[class*="language-"],

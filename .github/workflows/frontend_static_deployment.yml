@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - 'master'
+    paths:
+      - 'frontend/**'
 
 env:
   BUCKET_NAME: 0-to-100.joeterlecki.io
@@ -10,7 +12,7 @@ env:
 
 
 jobs:
-  deploy: 
+  deploy_frontend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout ${{ github.repository }}

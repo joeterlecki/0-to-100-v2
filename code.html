@@ -87,7 +87,29 @@
       <div class="col-lg-5">
         <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">0-TO-100</span></h3>
         <h3>The Python Code</h3>
-        <p>The Python Code Starts with...</p>
+        <p>Since the Python code base is deployed in an AWS Lambda Function the format and organization changes slightly
+          from a traditional Python application. Everything starts with the import json package to handle the event
+          request from the upstream API Gateway.
+        </p>
+        <p>First we need a function to generate a list of numbers from the request query string. This list will then be
+        returned for further processing. This function just used a simple for loop and the range function to append
+        the values between the start_number and end_number for our newly created number_list.</p>
+        <p>Now for the lambda_handler which is the core functionality for lambda events. When the event is received from API
+        gateway the lambda function executes all code that is defined within the handler. This is similar to a python
+        __main__ function. First the variables are created based of the event and the queryStringParameters for
+        start_number and end_number.
+        Next a new variable is created from the generate_number_list function from the returned list for our number range.
+        Note the +1. Pythons range function is not all-inclusive and does not include the last integer. Therefor we must
+        add 1 to the end number range to ensure we include all integers. Once we have the list, we can then begin creating
+        our response request.</p>
+
+        <p>To build the response we began by building the json response objects. Since this is a simple application and for
+        verbosity demonstrating the response step by step is key. First we take the number list and save it as a value for
+        a dictionary object. This variable will later represent the response body. After that we need to define the status
+        code returned the
+        client and any headers if necessary. Next the content type must be defined as application/json since our response
+        is json formatted. Finally, the json body is dumped as a string into the response to provide the client with our
+          requested data.</p>
       </div>
       <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
         <div class="card d-flex justify-content-center p-4 shadow-lg">
@@ -110,96 +132,106 @@
                   number_list = generate_number_list(start_number, end_number + 1)
 
                   numbers_response = {'number_list': number_list}
-
                   request_response = dict(statusCode=200, headers={})
                   request_response['headers']['Content-Type'] = 'application/json'
                   request_response['body'] = json.dumps(numbers_response)
 
                   return request_response
+
+
+
+
+
+
+
+
+
             </code></pre>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-5">
-        <h3>The Javascript Code</h3>
-        <p>The Javascript Starts with the function <span class="text-primary text-gradient">getNumbers</span> which
-          retrieves the values from the web form using <span
-              class="text-primary text-gradient">document.getElementById</span></p>
-        <p>To ensure and validate the values are integers, the inputs are parsed with <span
-            class="text-primary text-gradient">parseInt</span> and following with a conditional to check value type
-          using <span class="text-primary text-gradient">Number.isInteger</span></p>
-        <p>If the input returns TRUE the numbers are generated and then displayed using the functions <span
-            class="text-primary text-gradient"> generateNumbers</span> and <span
-            class="text-primary text-gradient">displayNumbers</span> respectively otherwise an alert is returned</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>The <span class="text-primary text-gradient">generateNumbers</span> functions takes in both values and
-          generates values for an empty list. The numbers are iterated over and pushed to the empty list which is then
-          returned</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>To display the numbers to our app with <span class="text-primary text-gradient">displayNumbers</span> the
-          function takes the numbers array returned from the previous function. These numbers are then put through
-          another loop that creates a template literal for generating the table rows.</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>After each iteration, the method
-          <span class="text-primary text-gradient">document.getElementById("results").innerHTML </span> and assigning
-          the values for each literal</p>
-      </div>
-      <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
-        <div class="card d-flex justify-content-center p-4 shadow-lg">
-            <pre class="line-numbers"><code class="language-javascript">
-              function getNumbers() {
-                  let startNumber = document.getElementById("startNumber").value;
-                  let endNumber = document.getElementById("endNumber").value;
+<!--    <div class="row">-->
+<!--      <div class="col-lg-5">-->
+<!--        <h3>The Javascript Code</h3>-->
+<!--        <p>The Javascript Starts with the function <span class="text-primary text-gradient">getNumbers</span> which-->
+<!--          retrieves the values from the web form using <span-->
+<!--              class="text-primary text-gradient">document.getElementById</span></p>-->
+<!--        <p>To ensure and validate the values are integers, the inputs are parsed with <span-->
+<!--            class="text-primary text-gradient">parseInt</span> and following with a conditional to check value type-->
+<!--          using <span class="text-primary text-gradient">Number.isInteger</span></p>-->
+<!--        <p>If the input returns TRUE the numbers are generated and then displayed using the functions <span-->
+<!--            class="text-primary text-gradient"> generateNumbers</span> and <span-->
+<!--            class="text-primary text-gradient">displayNumbers</span> respectively otherwise an alert is returned</p>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <p>The <span class="text-primary text-gradient">generateNumbers</span> functions takes in both values and-->
+<!--          generates values for an empty list. The numbers are iterated over and pushed to the empty list which is then-->
+<!--          returned</p>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <p>To display the numbers to our app with <span class="text-primary text-gradient">displayNumbers</span> the-->
+<!--          function takes the numbers array returned from the previous function. These numbers are then put through-->
+<!--          another loop that creates a template literal for generating the table rows.</p>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <p>After each iteration, the method-->
+<!--          <span class="text-primary text-gradient">document.getElementById("results").innerHTML </span> and assigning-->
+<!--          the values for each literal</p>-->
+<!--      </div>-->
+<!--      <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">-->
+<!--        <div class="card d-flex justify-content-center p-4 shadow-lg">-->
+<!--            <pre class="line-numbers"><code class="language-javascript">-->
+<!--              function getNumbers() {-->
+<!--                  let startNumber = document.getElementById("startNumber").value;-->
+<!--                  let endNumber = document.getElementById("endNumber").value;-->
 
-                  startNumber = parseInt(startNumber);
-                  endNumber = parseInt(endNumber);
+<!--                  startNumber = parseInt(startNumber);-->
+<!--                  endNumber = parseInt(endNumber);-->
 
-                  if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {
-                      generateNumberArray(startNumber, endNumber);
+<!--                  if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {-->
+<!--                      generateNumberArray(startNumber, endNumber);-->
 
-                  } else {
-                      alert("You Must Enter A Valid Integer");
-                  }
-              }
+<!--                  } else {-->
+<!--                      alert("You Must Enter A Valid Integer");-->
+<!--                  }-->
+<!--              }-->
 
-              function generateNumberArray(startNumber, endNumber) {
-                  const url = `https://api.joeterlecki.io/0-to-100?start_number=${startNumber}&end_number=${endNumber}`
-                  fetch(url)
-                      .then((response) => {
-                          return response.json();
-                      })
-                      .then((data) => {
-                          let numbers = data["number_list"];
-                          let templateRows = "";
-                          for (let number = 0; number < numbers.length; number++) {
-                              let displayNumber = numbers[number];
-                              if (displayNumber % 2 === 0) {
-                                  templateRows += `<tr><td class="align-middle text-center"><span class="text-primary text-gradient text-xs font-weight-bold">${displayNumber}</span></td></tr>`;
-                              } else {
-                                  templateRows += `<tr><td class="align-middle text-center"><span class="text-secondary text-xs">${displayNumber}</span></td></tr>`;
-                              }
-                          }
-                          document.getElementById("results").innerHTML = templateRows;
-                      })
-              }
-            </code></pre>
-        </div>
-      </div>
-    </div>
+<!--              function generateNumberArray(startNumber, endNumber) {-->
+<!--                  const url = `https://api.joeterlecki.io/0-to-100?start_number=${startNumber}&end_number=${endNumber}`-->
+<!--                  fetch(url)-->
+<!--                      .then((response) => {-->
+<!--                          return response.json();-->
+<!--                      })-->
+<!--                      .then((data) => {-->
+<!--                          let numbers = data["number_list"];-->
+<!--                          let templateRows = "";-->
+<!--                          for (let number = 0; number < numbers.length; number++) {-->
+<!--                              let displayNumber = numbers[number];-->
+<!--                              if (displayNumber % 2 === 0) {-->
+<!--                                  templateRows += `<tr><td class="align-middle text-center"><span-->
+<!--                class="text-primary text-gradient text-xs font-weight-bold">${displayNumber}</span></td></tr>`;-->
+<!--                              } else {-->
+<!--                                  templateRows += `<tr><td class="align-middle text-center"><span-->
+<!--                class="text-secondary text-xs">${displayNumber}</span></td></tr>`;-->
+<!--                              }-->
+<!--                          }-->
+<!--                          document.getElementById("results").innerHTML = templateRows;-->
+<!--                      })-->
+<!--              }-->
+<!--            </code></pre>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </section>
 <footer class="footer py-10">

@@ -32,12 +32,13 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
   <div class="container">
-    <a class="navbar-brand" href="./index.html" rel="tooltip" title="Place Holder" data-placement="bottom"
-       target="_blank">
+    <a class="navbar-brand" data-placement="bottom" href="./index.html" rel="tooltip" target="_blank"
+       title="Place Holder">
       <span class="brand-font">0-TO-100: Full Throttle</span>
     </a>
-    <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <button aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler shadow-none ms-2" data-bs-target="#navigation" data-bs-toggle="collapse"
+            type="button">
         <span class="navbar-toggler-icon mt-2">
           <span class="navbar-toggler-bar bar1"></span>
           <span class="navbar-toggler-bar bar2"></span>
@@ -96,14 +97,25 @@
     <div class="row">
       <div class="col-lg-5">
         <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">0-TO-100</span></h3>
-        <h3>A Coding Project</h3>
-        <p>Get your speedup and go full throttle. A javascript program that displays a list of numbers from 0 to 100.
-          All Even Numbers will be displayed in <span class="text-gradient text-primary">BOLD</span></p>
-        <h4>Instructions</h4>
-        <p>Enter a starting value and an ending value. Press the button and the values with appear with EVEN numbers in
-          <span class="text-gradient text-primary">BOLD</span></p>
+        <h3>Architecture</h3>
+        <p>This application is deployed in <span class="text-gradient text-primary">AWS</span> using serverless
+          technologies. The frontend is deployed with bootstrap
+          using a static s3 bucket.</p>
+        <p>The assets are then served using <span class="text-gradient text-primary">CloudFront CDN</span> and <span
+            class="text-gradient text-primary">ACM Certificate Management for SSL</span>.</p>
+        <p>The application logic is deployed with <span class="text-gradient text-primary">API Gateway</span> and <span
+            class="text-gradient text-primary">Lambda Proxy</span> Integration with a <span
+            class="text-gradient text-primary">Python backend</span>.</p>
+        <p>The 0-to-100 application logic sends a <span class="text-gradient text-primary">GET</span> request through an
+          API Gateway endpoint with the supplied numbers
+          and then the backend Lambda executes the event with the queryStringParameters to return a number list to the
+          DOM and displayed using some Javascript.</p>
+
       </div>
       <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
+        <div class="card d-flex justify-content-center p-4 shadow-lg">
+          <img src="./assets/img/0-to-100.diagram.png">
+        </div>
       </div>
     </div>
   </div>

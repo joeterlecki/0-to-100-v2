@@ -1,8 +1,6 @@
 name: Deploy Lambda Python Lambda Package
 on: 
   push:
-    branches:
-      - 'master'
     paths:
       - 'lambda_package/**'
 

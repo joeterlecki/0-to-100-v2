@@ -147,6 +147,7 @@
                   numbers_response = {'number_list': number_list}
                   request_response = dict(statusCode=200, headers={})
                   request_response['headers']['Content-Type'] = 'application/json'
+                  request_reponse['headers']['Access-Control-Allow-Origin'] = '*'
                   request_response['body'] = json.dumps(numbers_response)
 
                   return request_response

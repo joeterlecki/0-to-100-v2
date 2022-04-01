@@ -15,10 +15,14 @@ def lambda_handler(event, context):
 
     number_list = generate_number_list(start_number, end_number + 1)
 
-    numbers_response = {'number_list': number_list}
+    numbers_response = {}
+    numbers_response['number_list'] = number_list
 
-    request_response = dict(statusCode=200, headers={})
-    request_response['headers']['Content-Type'] = 'application/json'
-    request_response['body'] = json.dumps(numbers_response)
+    request_reponse = {}
+    request_reponse['statusCode'] = 200
+    request_reponse['headers'] = {}
+    request_reponse['headers']['Content-Type'] = 'application/json'
+    request_reponse['headers']['Access-Control-Allow-Origin'] = '*'
+    request_reponse['body'] = json.dumps(numbers_response)
 
-    return request_response
+    return request_reponse

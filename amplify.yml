@@ -12,6 +12,6 @@ frontend:
       - "app.html"
       - "code.html"
       - "architecture.html"
-      - "assets/**"
+      - "/assets/**"
   cache:
     paths: []

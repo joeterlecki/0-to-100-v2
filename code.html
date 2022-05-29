@@ -90,70 +90,12 @@
     <div class="row mb-5">
       <div class="col-lg-5">
         <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">0-TO-100</span></h3>
-        <h3>The Python Code</h3>
-        <p>Since the Python code base is deployed in an AWS Lambda Function the format and organization changes slightly
-          from a traditional Python application. Everything starts with the import json package to handle the event
-          request from the upstream API Gateway.
-        </p>
-        <p>First we need a function to generate a list of numbers from the request query string. This list will then be
-        returned for further processing. This function just used a simple for loop and the range function to append
-        the values between the start_number and end_number for our newly created number_list.</p>
-        <p>Now for the lambda_handler which is the core functionality for lambda events. When the event is received from API
-        gateway the lambda function executes all code that is defined within the handler. This is similar to a python
-        __main__ function. First the variables are created based of the event and the queryStringParameters for
-        start_number and end_number.
-        Next a new variable is created from the generate_number_list function from the returned list for our number range.
-        Note the +1. Pythons range function is not all-inclusive and does not include the last integer. Therefor we must
-        add 1 to the end number range to ensure we include all integers. Once we have the list, we can then begin creating
-        our response request.</p>
+        <h3>The Code</h3>
 
-        <p>To build the response we began by building the json response objects. Since this is a simple application and for
-        verbosity demonstrating the response step by step is key. First we take the number list and save it as a value for
-        a dictionary object. This variable will later represent the response body. After that we need to define the status
-        code returned the
-        client and any headers if necessary. Next the content type must be defined as application/json since our response
-        is json formatted. Finally, the json body is dumped as a string into the response to provide the client with our
-          requested data.</p>
       </div>
       <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
         <div class="card d-flex justify-content-center p-4 shadow-lg">
             <pre class="line-numbers"><code class="language-python">
-              # Extra Whitespace Added to follow description column.
-
-              import json
-
-
-
-
-              def generate_number_list(start_number, end_number):
-                  number_list = []
-                  for number in range(start_number, end_number):
-                      number_list.append(number)
-                  return number_list
-
-
-              def lambda_handler(event, context):
-                  start_number = int(event['queryStringParameters']['start_number'])
-                  end_number = int(event['queryStringParameters']['end_number'])
-
-                  number_list = generate_number_list(start_number, end_number + 1)
-
-                  numbers_response = {'number_list': number_list}
-                  request_response = dict(statusCode=200, headers={})
-                  request_response['headers']['Content-Type'] = 'application/json'
-                  request_reponse['headers']['Access-Control-Allow-Origin'] = '*'
-                  request_response['body'] = json.dumps(numbers_response)
-
-                  return request_response
-
-
-
-
-
-
-
-
-
             </code></pre>
         </div>
       </div>
